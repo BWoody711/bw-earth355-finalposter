@@ -1,11 +1,12 @@
 library(ggplot2)
 library(ggpubr)
+library(rstudioapi)
 
-#setwd("D:/OneDrive - University of Waterloo/Courses/Earth 355")
+setwd(dirname(getActiveDocumentContext()$path))
 
 huron <- read.csv("./huron_icecover_precip_offset.csv", sep=";")
 
-hist(huron$LakeLevel)
+hist(huron$Precip)
 
 ggplot(huron, aes(x=IceCover, y=LakeLevel)) +
   geom_point() +
